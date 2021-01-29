@@ -16,7 +16,9 @@ class unattended_upgrades (
   Optional[String]                          $sender                 = undef,
   Integer[0]                                $size                   = 0,
   Integer[0]                                $update                 = 1,
-  Integer[0]                                $upgrade                = 1,
+  # Set upgrade to 'always' so that it will run when ever the timer sets it off otherwise it
+  # will only ever run once every n days.
+  String                                    $upgrade                = 'always',
   Unattended_upgrades::Upgradeable_packages $upgradeable_packages   = {},
   Integer[0]                                $verbose                = 0,
   Boolean                                   $notify_update          = false,
